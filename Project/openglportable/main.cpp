@@ -44,6 +44,8 @@ glVertex2f(-0.80,0.50);
 
    glEnd();
    glFlush();
+
+   
 }
 
 int main(int argc, char** argv)
