@@ -155,4 +155,19 @@ void display()
     drawBird();
 
 }
-
+void keyboard(unsigned char key,int,int)
+{
+    if(key==' ')
+    {
+        running=true;
+        birdVY=FLAP;
+    }
+    if(key=='r' || key=='R')
+    {
+        birdX=120; birdY=320; birdVY=0;
+        pipeX=worldW;
+        score=0;
+        running=false;
+        gameOver=false;
+    }
+}
