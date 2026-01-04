@@ -1,60 +1,52 @@
 #include <GL/glut.h>
-# include<math.h>
-void display()
+#include <math.h>
+
+//World
+float worldH = 640;
+float worldW = 480;
+
+// Bird
+float birdX, birdY;
+float birdVY = 0;
+float birdR = 14;
+
+// Pipe
+float pipeX;
+float pipeGapY = 300;
+float pipeW = 60;
+float pipeGap = 160;
+float pipeSpeed = 150;
+
+//Draw Rectengular
+void drawRect(float x,float y,float w,float h)
 {
-   glClear(GL_COLOR_BUFFER_BIT);
-    glLineWidth(3);
-
-    /*
-    glBegin(GL_LINES);
-
-       glColor3f(1,0,0);
-       glVertex2f(-0.50,-0.90);
-       glVertex2f(0.50,-0.90);
-
-       glColor3f(0,0,1);
-       glVertex2f(0.50,-0.90);
-       glVertex2f(0.50,-0.2);
-
-       glColor3f(1,0,1);
-       glVertex2f(0.50,-0.2);
-       glVertex2f(-0.50,-0.2);
-
-       glColor3f(1,1,0);
-       glVertex2f(-0.50,-0.90);
-       glVertex2f(-0.50,-0.20);
-
-*/
-
-glBegin(GL_POLYGON);
-
-glColor3f(0,1,1);
-glVertex2f(0.8,0.5);
-
-glColor3f(0,0,1);
-glVertex2f(0.80,-0.50);
-
-glColor3f(0,1,0);
-glVertex2f(-0.80,-0.50);
-
-glColor3f(1,0,0);
-glVertex2f(-0.80,0.50);
-
-
-
-   glEnd();
-   glFlush();
-
-   
+    glBegin(GL_POLYGON);
+    glVertex2f(x,y);
+    glVertex2f(x+w,y);
+    glVertex2f(x+w,y+h);
+    glVertex2f(x,y+h);
+    glEnd();
 }
 
-int main(int argc, char** argv)
+//Draw Circle
+void drawCircle(float cx,float cy,float r)
 {
-    glutInit(&argc, argv);
-    glutInitWindowSize(640, 360); //window size
-    glutCreateWindow("OpenGL 64bit");
-    glutDisplayFunc(display); //call the function
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);//window color
-    glutMainLoop();
-    return 0;
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2f(cx,cy);
+    for(int i=0;i<=100;i++)
+    {
+        float a = i * 2 * 3.1416f / 100;
+        glVertex2f(cx + cos(a)*r, cy + sin(a)*r);
+    }
+    glEnd();
+}
+
+//Cloud
+void drawCloud(float x,float y)
+{
+    glColor3f(1,1,1);
+    drawCircle(x,y,20);
+    drawCircle(x+20,y+10,25);
+    drawCircle(x-20,y+10,25);
+    drawCircle(x+40,y,18);
 }

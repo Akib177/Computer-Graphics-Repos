@@ -67,3 +67,21 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+1766940523 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\main.cpp
+	<GL/glut.h>
+	<math.h>
+
+1761232548 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1761232548 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
