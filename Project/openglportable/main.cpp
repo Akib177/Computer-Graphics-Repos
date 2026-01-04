@@ -119,6 +119,33 @@ void drawPipe()
     drawRect(pipeX,pipeGapY+pipeGap/2,pipeW,
              worldH-(pipeGapY+pipeGap/2));
 }
+//  Collision
+
+bool hitPipe()
+
+{
+
+    if(birdX+birdR>pipeX && birdX-birdR<pipeX+pipeW)
+
+    {
+
+        if(birdY-birdR<pipeGapY-pipeGap/2 ||
+
+           birdY+birdR>pipeGapY+pipeGap/2)
+
+            return true;
+
+    }
+
+    if(birdY-birdR<80 || birdY+birdR>worldH)
+
+        return true;
+
+    return false;
+
+}
+
+
 
 void display()
 {
@@ -128,3 +155,4 @@ void display()
     drawBird();
 
 }
+
