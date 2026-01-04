@@ -125,8 +125,6 @@ void display()
     glClear(GL_COLOR_BUFFER_BIT);
     drawBackground();
     drawPipe();
-    drawRing();
     drawBird();
 
 }
-
