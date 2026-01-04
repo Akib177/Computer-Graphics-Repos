@@ -119,3 +119,14 @@ void drawPipe()
     drawRect(pipeX,pipeGapY+pipeGap/2,pipeW,
              worldH-(pipeGapY+pipeGap/2));
 }
+
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    drawBackground();
+    drawPipe();
+    drawRing();
+    drawBird();
+
+}
+
