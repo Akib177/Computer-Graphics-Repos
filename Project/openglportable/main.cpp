@@ -145,7 +145,29 @@ bool hitPipe()
 
 }
 
+ 
+//  Score
 
+int score = 0;
+void drawScore()
+{
+    int s = score;
+    glColor3f(0,0,0);
+    glRasterPos2f(10,610);
+ 
+    if(s==0) glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,'0');
+ 
+    char buf[10];
+    int i=0;
+    while(s>0)
+    {
+        buf[i++] = (s%10)+'0';
+        s/=10;
+    }
+    for(int j=i-1;j>=0;j--)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,buf[j]);
+}
+ 
 
 void display()
 {
@@ -153,6 +175,7 @@ void display()
     drawBackground();
     drawPipe();
     drawBird();
+    drawScore();
 
 }
 void keyboard(unsigned char key,int,int)
