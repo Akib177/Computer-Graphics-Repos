@@ -229,3 +229,13 @@ void keyboard(unsigned char key,int,int)
         gameOver=false;
     }
 }
+
+int main(int argc,char** argv)
+{
+    glutInit(&argc,argv);
+    glutInitWindowSize(500,700);
+    glutDisplayFunc(display);
+    glutKeyboardFunc(keyboard);
+
+
+}
