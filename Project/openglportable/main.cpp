@@ -167,6 +167,40 @@ void drawScore()
     for(int j=i-1;j>=0;j--)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,buf[j]);
 }
+
+// Physics
+float GRAVITY = 900;
+float FLAP = 300;
+
+// Game
+bool running = false;
+bool gameOver = false;
+int score = 0;
+
+//  Update
+void update(float dt)
+{
+    if(!running || gameOver) return;
+
+    birdVY -= GRAVITY*dt;
+    birdY += birdVY*dt;
+
+    pipeX -= pipeSpeed*dt;
+
+    if(pipeX+pipeW<0)
+    {
+        pipeX = worldW;
+        pipeGapY = (pipeGapY==300)?260:300;
+        score++;
+    }
+
+    if(hitPipe())
+    {
+        gameOver=true;
+        running=false;
+    }
+}
+}
  
 
 void display()
