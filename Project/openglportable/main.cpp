@@ -210,7 +210,7 @@ void timer(int)
 
     update(dt);
     glutPostRedisplay();
-    glutTimerFunc(10,timer,0);
+    glutTimerFunc(20,timer,0);
 }
 
 void display()
