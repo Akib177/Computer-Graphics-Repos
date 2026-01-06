@@ -200,6 +200,20 @@ void update(float dt)
         running=false;
     }
 }
+
+int lastTime = 0;
+
+
+void timer(int)
+{
+    int now = glutGet(GLUT_ELAPSED_TIME);
+    float dt = (now-lastTime)/1000.0f;
+    lastTime = now;
+    if(dt>0.05) dt=0.05;
+
+    update(dt);
+    glutPostRedisplay();
+    glutTimerFunc(16,timer,0);
 }
  
 
