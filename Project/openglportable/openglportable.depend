@@ -67,9 +67,10 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1767710266 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\main.cpp
+1767721082 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\main.cpp
 	<GL/glut.h>
 	<math.h>
+	<iostream>
 
 1767710266 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\glut.h
 	"freeglut_std.h"

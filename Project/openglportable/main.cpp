@@ -1,5 +1,7 @@
 #include <GL/glut.h>
 #include <math.h>
+#include<iostream>
+using namespace std;
 
 //World
 float worldH =640;
@@ -128,44 +130,39 @@ bool hitPipe()
     if(birdX+birdR>pipeX && birdX-birdR<pipeX+pipeW)
 
     {
-
-        if(birdY-birdR<pipeGapY-pipeGap/2 ||
-
-           birdY+birdR>pipeGapY+pipeGap/2)
+        if(birdY-birdR<pipeGapY-pipeGap/2 || birdY+birdR>pipeGapY+pipeGap/2)
 
             return true;
-
     }
 
-    if(birdY-birdR<80 || birdY+birdR>worldH)
-
+    if(birdY-birdR<80 || birdY+birdR>worldH){
         return true;
+    }
 
     return false;
 
 }
 
- 
 //  Score
-
 int score = 0;
+
 void drawScore()
 {
-    int s = score;
-    glColor3f(0,0,0);
-    glRasterPos2f(10,610);
- 
-    if(s==0) glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,'0');
- 
-    char buf[10];
-    int i=0;
-    while(s>0)
-    {
-        buf[i++] = (s%10)+'0';
-        s/=10;
-    }
-    for(int j=i-1;j>=0;j--)
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,buf[j]);
+    int s = score;
+    glColor3f(0,0,0);
+    glRasterPos2f(10,610);
+
+    if(s == 0) glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, '0');
+
+    char buf[10];
+    int i = 0;
+    while(s > 0)
+    {
+        buf[i++] = (s % 10) + '0';
+        s /= 10;
+    }
+    for(int j = i - 1; j >= 0; j--)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, buf[j]);
 }
 
 // Physics
@@ -175,7 +172,7 @@ float FLAP = 300;
 // Game
 bool running = false;
 bool gameOver = false;
-int score = 0;
+
 
 //  Update
 void update(float dt)
@@ -213,9 +210,8 @@ void timer(int)
 
     update(dt);
     glutPostRedisplay();
-    glutTimerFunc(16,timer,0);
+    glutTimerFunc(10,timer,0);
 }
- 
 
 void display()
 {
@@ -247,9 +243,21 @@ void keyboard(unsigned char key,int,int)
 int main(int argc,char** argv)
 {
     glutInit(&argc,argv);
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
     glutInitWindowSize(500,700);
+    glutCreateWindow("Flappy Bird");
+
+    glOrtho(0,worldW,0,worldH,-1,1);
+
+    birdX=120; birdY=320;
+    pipeX=worldW;
+
+    lastTime=glutGet(GLUT_ELAPSED_TIME);
+
     glutDisplayFunc(display);
     glutKeyboardFunc(keyboard);
+    glutTimerFunc(16,timer,0);
 
+    glutMainLoop();
 
 }
