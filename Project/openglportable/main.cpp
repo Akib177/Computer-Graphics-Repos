@@ -210,6 +210,7 @@ void display()
     drawPipe();
     drawBird();
     drawScore();
+    glutSwapBuffers();
 
 }
 void keyboard(unsigned char key,int,int)
