@@ -119,6 +119,7 @@ void drawBackground()
 
 
 
+
     // Hills
     glColor3f(0.45, 0.35, 0.25);
     drawCircle(120 + hillMove, 80, 150);
@@ -126,13 +127,14 @@ void drawBackground()
     drawCircle(120 + hillMove + 500, 80, 150);
     drawCircle(360 + hillMove + 500, 80, 180);
 
-
+        glColor3f(0.2f, 0.6f, 0.2f);
+    drawRect(0, 0, worldW, 80);
 
        // Trees
-drawTree(100 + treeMove, 80);
-drawTree(420 + treeMove, 80);
-drawTree(100 + treeMove + 500, 80);
-drawTree(420 + treeMove + 500, 80);
+    drawTree(100 + treeMove, 80);
+    drawTree(420 + treeMove, 80);
+    drawTree(100 + treeMove + 500, 80);
+    drawTree(420 + treeMove + 500, 80);
 }
 
 // Bird
@@ -148,6 +150,7 @@ void drawBird()
     glColor3f(1,0.7,0.1);
     drawCircle(birdX - birdR + 2, birdY + 2, 6);  // Left wing
     drawCircle(birdX + birdR - 2, birdY + 2, 6);  // Right wing
+
 
     // Tail
     glColor3f(1,0.6,0.0);
