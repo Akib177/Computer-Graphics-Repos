@@ -23,7 +23,8 @@ float pipeSpeed = 150;
 
 // Cloud movement
 float cloudMove = 0;
-
+float treeMove = 0; // Tree horizontal offset
+float hillMove = 0;
 // Score
 int score = 0;
 int highScore = 0;
@@ -79,6 +80,7 @@ void drawCloud(float x, float y)
 
 void drawTree(float x, float y)
 {
+
     glColor3f(0.55, 0.27, 0.07);
     drawRect(x - 15, y, 30, 100);
 
@@ -88,26 +90,49 @@ void drawTree(float x, float y)
     drawCircle(x + 35, y + 100, 45);
 }
 
+// sun drawing
+
+void drawSun(float x, float y, float r)
+{
+    glColor3f(1.0f, 0.9f, 0.0f); // Bright yellow
+    drawCircle(x, y, r);
+}
+
 
 // Background
 void drawBackground()
 {
+
+    // // Sky
     glColor3f(0.53, 0.81, 0.98);
     drawRect(0, 0, worldW, worldH);
 
+
+    // Sun
+    drawSun(worldW - 60, worldH - 60, 50);
+
+    //  cloud
     drawCloud(100 + cloudMove, 520);
     drawCloud(280 + cloudMove, 560);
     drawCloud(380 + cloudMove, 500);
 
+
+
+
+    // Hills
     glColor3f(0.45, 0.35, 0.25);
-    drawCircle(120, 80, 150);
-    drawCircle(360, 80, 180);
+    drawCircle(120 + hillMove, 80, 150);
+    drawCircle(360 + hillMove, 80, 180);
+    drawCircle(120 + hillMove + 500, 80, 150);
+    drawCircle(360 + hillMove + 500, 80, 180);
 
-    glColor3f(0.2, 0.6, 0.2);
-    drawRect(0, 0, worldW, 80);
 
-    drawTree(100, 80);
-    drawTree(420, 80);
+
+       // Trees
+drawTree(100 + treeMove, 80);
+drawTree(420 + treeMove, 80);
+drawTree(100 + treeMove + 500, 80);
+drawTree(420 + treeMove + 500, 80);
 }
 
 // Bird
@@ -206,6 +231,16 @@ void update(float dt)
 
     cloudMove -= 20 * dt;
     if (cloudMove < -500) cloudMove = 0;
+
+
+    treeMove -= 80 * dt;
+if (treeMove < -500) treeMove = 0;
+
+
+hillMove -= 40 * dt;
+if (hillMove < -500) hillMove = 0;
+
+
 
     if (pipeX + pipeW < 0)
     {
