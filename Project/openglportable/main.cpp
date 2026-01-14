@@ -77,6 +77,18 @@ void drawCloud(float x, float y)
     drawCircle(x + 40, y, 18);
 }
 
+void drawTree(float x, float y)
+{
+    glColor3f(0.55, 0.27, 0.07);
+    drawRect(x - 15, y, 30, 100);
+
+    glColor3f(0.0, 0.6, 0.0);
+    drawCircle(x, y + 130, 55);
+    drawCircle(x - 35, y + 100, 45);
+    drawCircle(x + 35, y + 100, 45);
+}
+
+
 // Background
 void drawBackground()
 {
@@ -87,12 +99,15 @@ void drawBackground()
     drawCloud(280 + cloudMove, 560);
     drawCloud(380 + cloudMove, 500);
 
-    glColor3f(0.2, 0.6, 0.2);
+    glColor3f(0.45, 0.35, 0.25);
     drawCircle(120, 80, 150);
     drawCircle(360, 80, 180);
 
-    glColor3f(0.36, 0.25, 0.2);
+    glColor3f(0.2, 0.6, 0.2);
     drawRect(0, 0, worldW, 80);
+
+    drawTree(100, 80);
+    drawTree(420, 80);
 }
 
 // Bird
@@ -136,10 +151,19 @@ void drawBird()
 // Pipe
 void drawPipe()
 {
-    glColor3f(0, 0.7, 0);
+     glColor3f(0.1, 0.65, 0.1);
     drawRect(pipeX, 0, pipeW, pipeGapY - pipeGap / 2);
     drawRect(pipeX, pipeGapY + pipeGap / 2,
              pipeW, worldH - (pipeGapY + pipeGap / 2));
+
+    glColor3f(0.0, 0.4, 0.0);
+    glLineWidth(3);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(pipeX, 0);
+        glVertex2f(pipeX + pipeW, 0);
+        glVertex2f(pipeX + pipeW, pipeGapY - pipeGap/2);
+        glVertex2f(pipeX, pipeGapY - pipeGap/2);
+    glEnd();
 }
 
 // Collision
