@@ -23,7 +23,7 @@ float pipeSpeed = 150;
 
 // Cloud movement
 float cloudMove = 0;
-float treeMove = 0; // Tree horizontal offset
+float treeMove = 0;
 float hillMove = 0;
 // Score
 int score = 0;
@@ -36,6 +36,11 @@ float FLAP = 300;
 // Game state
 bool running = false;
 bool gameOver = false;
+
+
+float wingOffset = 0;
+bool wingUp = true;
+float wingSpeed = 50;
 
 // ---------------- DRAWING ----------------
 
@@ -94,7 +99,7 @@ void drawTree(float x, float y)
 
 void drawSun(float x, float y, float r)
 {
-    glColor3f(1.0f, 0.9f, 0.0f); // Bright yellow
+    glColor3f(1.0f, 0.9f, 0.0f);
     drawCircle(x, y, r);
 }
 
@@ -148,9 +153,14 @@ void drawBird()
 
     // Wings
     glColor3f(1,0.7,0.1);
-    drawCircle(birdX - birdR + 2, birdY + 2, 6);  // Left wing
-    drawCircle(birdX + birdR - 2, birdY + 2, 6);  // Right wing
+    drawCircle(birdX - birdR + 2, birdY + 2, 6);
+    drawCircle(birdX + birdR - 2, birdY + 2, 6);
 
+
+    // Wings with animation
+    glColor3f(1,0.7,0.1);
+    drawCircle(birdX - birdR + 2, birdY + 2 + wingOffset, 6);
+    drawCircle(birdX + birdR - 2, birdY + 2 + wingOffset, 6);
 
     // Tail
     glColor3f(1,0.6,0.0);
@@ -262,6 +272,15 @@ if (hillMove < -500) hillMove = 0;
         if (score > highScore)
             highScore = score;
     }
+
+
+if (wingUp) {
+    wingOffset += wingSpeed * dt;
+    if (wingOffset > 6) wingUp = false;
+} else {
+    wingOffset -= wingSpeed * dt;
+    if (wingOffset < -6) wingUp = true;
+}
 }
 
 // ---------------- GLUT ----------------
