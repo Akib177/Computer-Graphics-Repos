@@ -98,19 +98,40 @@ void drawBackground()
 // Bird
 void drawBird()
 {
-    glColor3f(1, 0.9, 0.4);
+    // Body
+    glColor3f(1,0.9,0.4);
     drawCircle(birdX, birdY, birdR);
-
-    glColor3f(1, 0.8, 0.2);
+    glColor3f(1,0.8,0.2);
     drawCircle(birdX, birdY, birdR - 3);
 
-    glColor3f(1, 0.5, 0);
+    // Wings
+    glColor3f(1,0.7,0.1);
+    drawCircle(birdX - birdR + 2, birdY + 2, 6);  // Left wing
+    drawCircle(birdX + birdR - 2, birdY + 2, 6);  // Right wing
+
+    // Tail
+    glColor3f(1,0.6,0.0);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(birdX - birdR, birdY);
+    glVertex2f(birdX - birdR - 8, birdY + 4);
+    glVertex2f(birdX - birdR - 8, birdY - 4);
+    glEnd();
+
+    // Eye
+    glColor3f(1,1,1);
+    drawCircle(birdX + 5, birdY + 4, 3);
+    glColor3f(0,0,0);
+    drawCircle(birdX + 5, birdY + 4, 2);
+
+    // Beak
+    glColor3f(1,0.5,0);
     glBegin(GL_TRIANGLES);
     glVertex2f(birdX + birdR, birdY);
     glVertex2f(birdX + birdR + 8, birdY + 4);
     glVertex2f(birdX + birdR + 8, birdY - 4);
     glEnd();
 }
+
 
 // Pipe
 void drawPipe()

@@ -67,15 +67,17 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1767797165 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\main.cpp
+1768402439 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\main.cpp
 	<GL/glut.h>
 	<math.h>
 	<iostream>
+	<cstdlib>
+	<ctime>
 
-1767797165 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\glut.h
+1768402439 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\glut.h
 	"freeglut_std.h"
 
-1767797165 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\freeglut_std.h
+1768402439 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\freeglut\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -86,20 +88,20 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1767797165 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\circles.cpp
+1768402439 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\circles.cpp
 	"Circles.h"
 
-1767797165 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\circles.h
+1768402439 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\circles.h
 
-1767797165 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\rectngulars.cpp
+1768402439 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\rectngulars.cpp
 	"Rectngulars.h"
 
-1767797165 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\rectngulars.h
+1768402439 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\rectngulars.h
 
-1767797165 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\triangles.cpp
+1768402439 source:d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\src\triangles.cpp
 	"Triangles.h"
 
-1767797165 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\triangles.h
+1768402439 d:\education\7th semester  (fall 25-26)\computer graphics\computer-graphics-repos\project\openglportable\include\triangles.h
 
 1768400607 source:e:\fall_2025_2026\graphics\computer-graphics-repos\project\openglportable\main.cpp
 	<GL/glut.h>
