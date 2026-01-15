@@ -95,12 +95,39 @@ void drawTree(float x, float y)
     drawCircle(x + 35, y + 100, 45);
 }
 
-// sun drawing
+float sunAngle = 0.0;
 
+// sun drawing
 void drawSun(float x, float y, float r)
 {
-    glColor3f(1.0f, 0.9f, 0.0f);
-    drawCircle(x, y, r);
+    glPushMatrix();
+
+    glTranslatef(x, y, 0);
+    glRotatef(sunAngle, 0, 0, 1);
+
+    // Sun rays
+    glColor3f(1.0, 0.8, 0.0);
+    glBegin(GL_LINES);
+    for (int i = 0; i < 12; i++)
+    {
+        float angle = i * 30.0;
+        float rad = angle * 3.1416 / 180.0;
+
+        float x1 = cos(rad) * r;
+        float y1 = sin(rad) * r;
+        float x2 = cos(rad) * (r + 20);
+        float y2 = sin(rad) * (r + 20);
+
+        glVertex2f(x1, y1);
+        glVertex2f(x2, y2);
+    }
+    glEnd();
+
+    // Sun body
+    glColor3f(1.0, 0.9, 0.0);
+    drawCircle(0, 0, r);
+
+    glPopMatrix();
 }
 
 
