@@ -7,7 +7,7 @@ using namespace std;
 
 // World
 float worldH = 640;
-float worldW = 480;
+float worldW = 880;
 
 // Bird
 float birdX, birdY;
